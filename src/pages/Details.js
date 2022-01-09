@@ -42,6 +42,7 @@ function Details() {
                     </Card>
                 </Col>
                 <Col className={classes.details}>
+                    <p className={classes.title}>{braid.title}</p>
                     <p className={classes.description}>{braid.description}</p>
                     <Row className="row mt-5">
                         <Col>
