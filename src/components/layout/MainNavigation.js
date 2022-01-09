@@ -36,7 +36,12 @@ function MainNavigation() {
     return (
         <Navbar className={classes.navbar} collapseOnSelect expand="md">
             <Container className={classes.content}>
-                <Navbar.Brand href="/" className={classes.logo}>Treccine Africane Ferrara</Navbar.Brand>
+                <Navbar.Brand>
+                <div>
+                <a href='/'>< img src="favicon.ico" alt="Image Load Error" width="100"/></a>
+
+                 </div>
+                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
 
