@@ -39,6 +39,7 @@ function Details() {
                 <Col sm>
                     <Card>
                         <Card.Img src={braid.image} alt="Card image" />
+                        <Card.Img className={classes.image} src={braid.image} alt="Card image" />
                     </Card>
                 </Col>
                 <Col className={classes.details}>
@@ -48,6 +49,22 @@ function Details() {
                     <p className={classes.makingTime}>Making Time:{braid.makingTime}</p>
                     <p className={classes.holdingTime}>Holding Time:{braid.holdingTime} </p>
                     <p className={classes.description}>{braid.description}</p>
+                    <Row className="row mt-5">
+                        <Col>
+                            <p className={classes.price}>Price: {braid.price} €</p>
+                        </Col>
+                        <Col>
+                            <p className={classes.season}>Ideal for: {braid.season} </p>
+                        </Col>
+                    </Row>
+                    <Row className="row mt-5">
+                        <Col>
+                            <p className={classes.makingTime}>Making Time:{braid.makingTime}</p>
+                        </Col>
+                        <Col>
+                            <p className={classes.holdingTime}>Holding Time:{braid.holdingTime} </p>
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
         </Container>

@@ -1,10 +1,31 @@
 .title {
 	font-size: 40px;
-	font-family: 'style Script', cursive;
+	font-family: 'Style Script', cursive;
 }
 .details {
 	text-align: center;
 }
+.image {
+	border-radius: 20px;
+}
+
+.description {
+	font-size: 20px;
+	text-align: justify;
+	/*font-weight: bold;*/
+}
+.price,
+.season,
+.makingTime,
+.holdingTime {
+	font-size: 25px;
+}
 
 @media only screen and (max-width: 600px) {
+	.price,
+	.season,
+	.makingTime,
+	.holdingTime {
+		font-size: 20px;
+	}
 }
