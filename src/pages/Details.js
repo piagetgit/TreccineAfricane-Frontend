@@ -38,16 +38,10 @@ function Details() {
             <Row className="justify-content-md-center">
                 <Col sm>
                     <Card>
-                        <Card.Img src={braid.image} alt="Card image" />
                         <Card.Img className={classes.image} src={braid.image} alt="Card image" />
                     </Card>
                 </Col>
                 <Col className={classes.details}>
-                    <p className={classes.title}>{braid.title}</p>
-                    <p className={classes.price}>Price: {braid.price} €</p>
-                    <p className={classes.season}>Season: {braid.season} </p>
-                    <p className={classes.makingTime}>Making Time:{braid.makingTime}</p>
-                    <p className={classes.holdingTime}>Holding Time:{braid.holdingTime} </p>
                     <p className={classes.description}>{braid.description}</p>
                     <Row className="row mt-5">
                         <Col>
