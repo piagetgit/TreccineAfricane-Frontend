@@ -37,11 +37,11 @@ function MainNavigation() {
         <Navbar className={classes.navbar} collapseOnSelect expand="md">
             <Container className={classes.content}>
                 <Navbar.Brand>
-                <div>
-                <a href='/'>< img src="favicon.ico" alt="Image Load Error" width="100"/></a>
+                    <div className={classes.logo}>
+                        <a href='/'>< img src="logo192.png" alt="Image Load Error" width="150" /></a>
 
-                 </div>
-                 </Navbar.Brand>
+                    </div>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
 

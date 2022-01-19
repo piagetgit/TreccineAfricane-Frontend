@@ -2,12 +2,6 @@
 	box-sizing: border-box;
 }
 
-.logo {
-	font-size: relative;
-	color: white;
-	font-weight: bold;
-	font-family: cursive;
-}
 .navbar {
 	background-color: #ffccff;
 	text-align: center;
@@ -15,11 +9,33 @@
 .content {
 	width: 100%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	align-items: center;
 }
 
 .search {
 	background-color: blue;
 	border: 1px solid;
+}
+.logo {
+	font-size: relative;
+	color: white;
+	font-weight: bold;
+	font-family: cursive;
+	transition: transform 0.1s;
+}
+.logo:hover {
+	transform: rotate(5deg);
+}
+
+@media only screen and (min-width: 100px) and (max-width: 460px) {
+	.logo {
+		margin-left: 8rem;
+	}
+}
+
+@media only screen and (min-width: 470px) and (max-width: 600px) {
+	.logo {
+		margin-left: 10rem;
+	}
 }

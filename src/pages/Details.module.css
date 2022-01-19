@@ -21,11 +21,20 @@
 	font-size: 25px;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (min-width: 200px) and (max-width: 450px) {
 	.price,
 	.season,
 	.makingTime,
 	.holdingTime {
-		font-size: 20px;
+		font-size: 15px;
+	}
+}
+
+@media only screen and (min-width: 450px) and (max-width: 600px) {
+	.price,
+	.season,
+	.makingTime,
+	.holdingTime {
+		font-size: 18px;
 	}
 }
