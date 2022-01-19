@@ -1,8 +1,17 @@
-
+import { useContext } from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBFooter, MDBIcon } from "mdbreact";
 import classes from './Footer.module.css';
+import { DetailsContext } from "./../../store/DetailsContext";
 
 function Footer(props) {
+    const { whatsAppMessage } = useContext(DetailsContext);
+
+    let text = "https://wa.me/393512301282";
+    if (whatsAppMessage !== "")
+        text = "https://wa.me/393512301282?text=Ti contatto per il modello N°=" + whatsAppMessage.id + ", " + whatsAppMessage.title + ", " +
+            + whatsAppMessage.price + "€ Colore " + whatsAppMessage.baseColor + "  Lunghezza fino al/la spalla/meta dosso/dosso." +
+            +"Quando saresti disponibile  ?";
+
     return (
         <div className={classes.container}>
             <MDBFooter color="blue" className="font-small pt-4 mt-4">
@@ -38,7 +47,7 @@ function Footer(props) {
                                 <MDBCol md="3">
                                     <ul>
                                         <li className="list-unstyled">
-                                            <a href="https://wa.me/393512301282" target="blank" style={{ color: 'green' }} className="p-5 fa-lg w-ic">
+                                            <a href={text} target="blank" style={{ color: 'green' }} className="p-5 fa-lg w-ic">
                                                 <MDBIcon fab icon="whatsapp" size="2x" />
                                             </a>
                                         </li>

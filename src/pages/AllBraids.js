@@ -21,7 +21,7 @@ const db = getFirestore(app);
 function AllBraidPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedBraids, setLoadedBraids] = useState([]);
-  const { allBraids, setAllBraids } = useContext(DetailsContext);
+  const { setAllBraids } = useContext(DetailsContext);
 
   useEffect(() => {
 

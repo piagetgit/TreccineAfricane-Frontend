@@ -11,9 +11,10 @@ import { useState } from 'react';
 function App() {
   const [braid, setBraid] = useState('hello');
   const [allBraids, setAllBraids] = useState('hello');
+  const [whatsAppMessage, setWhatsAppMessage] = useState("");
 
   return (
-    <DetailsContext.Provider value={{ braid, setBraid, allBraids, setAllBraids }}>
+    <DetailsContext.Provider value={{ braid, setBraid, allBraids, setAllBraids, whatsAppMessage, setWhatsAppMessage }}>
       <Layout>
         <Switch>
           <Route path='/' exact>

@@ -1,38 +1,14 @@
 import React from 'react'
 import { useContext } from 'react';
 import { DetailsContext } from "./../store/DetailsContext";
-import { Grid, Container, Row, Col, Card } from 'react-bootstrap'
-//import "./Details.css";
+import { Container, Row, Col, Card } from 'react-bootstrap'
+
 import classes from "./Details.module.css";
+
 function Details() {
-    const { braid, setBraid } = useContext(DetailsContext);
-
+    const { setWhatsAppMessage, braid } = useContext(DetailsContext);
+    setWhatsAppMessage(braid);
     console.log(braid);
-    /*return (
-        <div className="detail">
-            <div className="title">{braid.title}</div>
-            <div className="allDetails">
-                <div className="elements">
-                    <img src={braid.image} alt={braid.title} />
-                </div>
-                <div className="elements">
-                    <div className="description">
-                        <p>{braid.description}</p>
-                    </div>
-                    <div className="price">
-                        <p>{braid.price}</p>
-                    </div>
-                    <div className="makeTime">
-                        <p>{braid.makeTime}</p>
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
-    )*/
-
     return (
         <Container>
             <Row className="justify-content-md-center">
@@ -67,4 +43,3 @@ function Details() {
 }
 
 export default Details
-/* Hello gerold */
