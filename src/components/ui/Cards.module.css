@@ -6,9 +6,9 @@
 	background-color: white;
 	border-radius: 6px;
 	box-shadow: 1px 2px 3px rgba(247, 144, 233, 0.1);
-	transition: transform 0.2s;
+	transition: transform 0.1s;
 }
 
 .card:hover {
-	transform: rotate(2deg);
+	transform: scale(1.05);
 }

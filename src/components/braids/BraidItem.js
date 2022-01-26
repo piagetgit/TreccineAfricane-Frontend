@@ -3,7 +3,6 @@ import classes from './BraidItem.module.css';
 import { useHistory } from "react-router-dom";
 import { useContext } from 'react';
 import Card from '../ui/Card';
-import Details from '../../pages/Details';
 
 import { DetailsContext } from "./../../store/DetailsContext";
 
@@ -11,12 +10,11 @@ import { DetailsContext } from "./../../store/DetailsContext";
 
 function BraidItem(props) {
     const history = useHistory();
-    const { braid, setBraid } = useContext(DetailsContext);
+    const { setBraid } = useContext(DetailsContext);
     function detailFunction(props) {
         setBraid(props);
         history.push("/details");
     };
-    //<p>{props.description}</p>
 
     return <li className="list-inline-item">
         <Card >

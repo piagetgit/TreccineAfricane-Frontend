@@ -1,15 +1,13 @@
 
 import classes from './MainNavigation.module.css'
 import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
-import { UseRef } from 'react';
 import { DetailsContext } from "./../../store/DetailsContext";
 import { useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BraidList from './../braids/BraidList';
 
 function MainNavigation() {
     /*const query = UseRef();*/
-    const { allBraids, setAllBraids } = useContext(DetailsContext);
+    const { allBraids } = useContext(DetailsContext);
 
     function hanldeSearch(e) {
         e.preventDefault();
