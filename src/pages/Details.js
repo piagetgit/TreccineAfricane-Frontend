@@ -21,8 +21,6 @@ async function getBraid(setLoadedBraids,bradId,setWhatsAppMessage) {
       setWhatsAppMessage(items[0]);
       text = "https://wa.me/393512301282?text=Ti contatto per il modello N°=" + items[0].id + ", " + items[0].title + ", " +
             + items[0].price + "€ Colore " + items[0].baseColor + ". Quando saresti disponibile  ?";
-
-
       return items[0];
     });
   }
@@ -31,7 +29,7 @@ function Details() {
     const location = useLocation();
     const names=location.pathname.split("/");
     const [loadedBraid, setLoadedBraid] = useState([]);
-    const { setWhatsAppMessage, braid } = useContext(DetailsContext);
+    const { setWhatsAppMessage } = useContext(DetailsContext);
 
     useEffect(() => {
         getBraid(setLoadedBraid,names[2],setWhatsAppMessage);
@@ -67,9 +65,9 @@ function Details() {
                     </Row>
 
                     <Row className="row mt-5">
-                        <a href={text}>
-                            <button type='button'>Prenota !</button>
-                        </a>
+                        <div className={classes.actions}>
+                            <a href={text} target="blank" style={{ color: 'green' }}>Ordinare Subito !</a>
+                        </div>
                     </Row>
                 </Col>
             </Row>
