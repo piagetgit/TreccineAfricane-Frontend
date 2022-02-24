@@ -1,16 +1,11 @@
 import { useState, useEffect } from "react";
 import BraidList from "../components/braids/BraidList";
-
-import { DetailsContext } from "./../store/DetailsContext";
-import { useContext } from 'react';
 import firebase from "./../components/firebase/fireBaseConfig";
 
-/*const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);*/
 const ref = firebase.firestore().collection('braids');
 
 async function getBraid(setLoadedBraids,setIsLoading) {
-  ref.onSnapshot((querySnapshot) => {
+  ref.where("visible","==",true).onSnapshot((querySnapshot) => {
     const items = [];
     querySnapshot.forEach((doc) => {
       items.push(doc.data());
@@ -22,16 +17,10 @@ async function getBraid(setLoadedBraids,setIsLoading) {
   });
 }
 
-
-
-
 function AllBraidPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedBraids, setLoadedBraids] = useState([]);
-  const { setAllBraids } = useContext(DetailsContext);
 
-
-  /*const ref = firebase.firestore().collection('braids');*/
   useEffect(() => {
 
     setIsLoading(true);

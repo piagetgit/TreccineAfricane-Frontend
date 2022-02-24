@@ -1,56 +1,44 @@
 import { useState, useEffect } from "react";
 import BraidList from "../components/braids/BraidList";
+import firebase from "./../components/firebase/fireBaseConfig";
 
+const ref = firebase.firestore().collection('braids');
 
-
-async function getBraid() {
-    /*const braids = collection(db, 'braids');
-    const braidsSnapshot = await getDocs(braids);
-    const braidList = braidsSnapshot.docs.map(doc => doc.data());
-    return braidList;*/
+async function getBraid(setLoadedBraids,setIsLoading) {
+  ref.where("popular","==",true).onSnapshot((querySnapshot) => {
+    const items = [];
+    querySnapshot.forEach((doc) => {
+      items.push(doc.data());
+    });
+    setIsLoading(false);
+    setLoadedBraids(items);
+   
+    return items;
+  });
 }
 
-function LatestBraid() {
-    const [isLoading, setIsLoading] = useState(true);
-    const [loadedBraids, setLoadedBraids] = useState([]);
+function PopularBraids() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedBraids, setLoadedBraids] = useState([]);
+
+  useEffect(() => {
+
+    setIsLoading(true);
+    getBraid(setLoadedBraids,setIsLoading);
+  }, []);
 
 
-    useEffect(() => {
-        setIsLoading(true);
+  //execute quando il valore di isLoading change
 
-        getBraid().then((response) => {
-            return response;
-        }).then((data) => {
-
-            const braids = [];
-
-            for (const key in data) {
-                const b = {
-                    id: key,
-                    ...data[key]
-                };
-                if (b.popular)
-                    braids.push(b);
-
-            }
-
-            setIsLoading(false);
-            setLoadedBraids(braids);
-        });
-
-
-
-    }, []);
-
-    if (isLoading) {
-        return <section>
-            <p>Loading ......</p>
-        </section>
-    }
+  if (isLoading) {
+    return <section>
+      <p>Loading ......</p>
+    </section>
+  }
 
     return <div >
         <BraidList nameOfPage="Polular Braids" braids={loadedBraids} />
     </div>;
 }
 
-export default LatestBraid;
+export default PopularBraids;
