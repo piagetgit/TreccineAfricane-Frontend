@@ -4,7 +4,7 @@ import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstr
 import { DetailsContext } from "./../../store/DetailsContext";
 import { useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import logo from "./logo192.png"
 function MainNavigation() {
     /*const query = UseRef();*/
     const { allBraids } = useContext(DetailsContext);
@@ -22,21 +22,13 @@ function MainNavigation() {
 
         const searchBraidsREs = searchBraids.filter(function (el) { return el !== undefined })
         console.log(searchBraidsREs);
-
-        //setAllBraids(searchBraids);
-
-        /*
-                return <div >
-                    <BraidList braids={searchBraidsREs} />
-                </div>;
-        */
     }
     return (
         <Navbar className={classes.navbar} collapseOnSelect expand="md">
             <Container className={classes.content}>
                 <Navbar.Brand>
                     <div className={classes.logo}>
-                        <a href='/'>< img src="logo192.png" alt="Image Load Error" width="150" /></a>
+                        <a href='/'>< img src={logo} alt="Image Load Error" width="150" /></a>
 
                     </div>
                 </Navbar.Brand>

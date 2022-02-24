@@ -9,8 +9,7 @@ function Footer(props) {
     let text = "https://wa.me/393512301282";
     if (whatsAppMessage !== "")
         text = "https://wa.me/393512301282?text=Ti contatto per il modello N°=" + whatsAppMessage.id + ", " + whatsAppMessage.title + ", " +
-            + whatsAppMessage.price + "€ Colore " + whatsAppMessage.baseColor + "  Lunghezza fino al/la spalla/meta dosso/dosso." +
-            +"Quando saresti disponibile  ?";
+            + whatsAppMessage.price + "€ Colore " + whatsAppMessage.baseColor + ". Quando saresti disponibile  ?";
 
     return (
         <div className={classes.container}>

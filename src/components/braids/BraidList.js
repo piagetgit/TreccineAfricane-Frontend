@@ -3,7 +3,7 @@ import BraidItem from './BraidItem';
 import { Row, Col, Container } from 'react-bootstrap'
 
 function BraidList(props) {
-    //console.log(props);
+    console.log(props);
     return (
         <Container>
             <h1 className={classes.logo}>{props.nameOfPage}</h1>

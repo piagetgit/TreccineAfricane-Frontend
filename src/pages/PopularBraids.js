@@ -1,17 +1,13 @@
 import { useState, useEffect } from "react";
 import BraidList from "../components/braids/BraidList";
-import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import firebaseConfig from '../components/firebase/fireBaseConfig';
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
 
-async function getBraid(db) {
-    const braids = collection(db, 'braids');
+
+async function getBraid() {
+    /*const braids = collection(db, 'braids');
     const braidsSnapshot = await getDocs(braids);
     const braidList = braidsSnapshot.docs.map(doc => doc.data());
-    return braidList;
+    return braidList;*/
 }
 
 function LatestBraid() {
@@ -22,7 +18,7 @@ function LatestBraid() {
     useEffect(() => {
         setIsLoading(true);
 
-        getBraid(db).then((response) => {
+        getBraid().then((response) => {
             return response;
         }).then((data) => {
 

@@ -1,59 +1,44 @@
 import { useState, useEffect } from "react";
 import BraidList from "../components/braids/BraidList";
-import { initializeApp } from 'firebase/app';
-
-import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
-import firebaseConfig from '../components/firebase/fireBaseConfig';
 
 import { DetailsContext } from "./../store/DetailsContext";
 import { useContext } from 'react';
+import firebase from "./../components/firebase/fireBaseConfig";
 
-async function getBraid(db) {
-  const braids = collection(db, 'braids');
-  const braidsSnapshot = await getDocs(braids);
-  const braidList = braidsSnapshot.docs.map(doc => doc.data());
-  return braidList;
+/*const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);*/
+const ref = firebase.firestore().collection('braids');
+
+async function getBraid(setLoadedBraids,setIsLoading) {
+  ref.onSnapshot((querySnapshot) => {
+    const items = [];
+    querySnapshot.forEach((doc) => {
+      items.push(doc.data());
+    });
+    //console.log(items)
+    setIsLoading(false);
+    setLoadedBraids(items);
+    return items;
+  });
 }
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+
+
 
 function AllBraidPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedBraids, setLoadedBraids] = useState([]);
   const { setAllBraids } = useContext(DetailsContext);
 
+
+  /*const ref = firebase.firestore().collection('braids');*/
   useEffect(() => {
 
     setIsLoading(true);
-    getBraid(db).then((response) => {
-      return response;
-    }).then((data) => {
-
-      const braids = [];
-
-      for (const key in data) {
-        const b = {
-          id: key,
-          ...data[key]/* 
-         id:key["id"],
-         title:key["title"]*/
-        };
-
-        if (b.visible)
-          braids.push(b);
-        //console.log(b);
-
-      }
-
-      setIsLoading(false);
-      setLoadedBraids(braids);
-      setAllBraids(loadedBraids);
-    }).catch((error) => { console.log("error getting braids:" + error) });
-
-
-
+    getBraid(setLoadedBraids,setIsLoading);
   }, []);
+
+
   //execute quando il valore di isLoading change
 
   if (isLoading) {

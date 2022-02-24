@@ -21,20 +21,18 @@ function App() {
             <AllBraidPage />
           </Route>
 
-          <Route path='/latest-braids'>
+          <Route path='/latest-braids' exact>
             <LatestBraids />
           </Route>
 
-          <Route path='/popular-braids'>
+          <Route path='/popular-braids' exact>
             <PopularBraids />
           </Route>
 
-
-          <Route path='/details'>
+          
+          <Route path="/details">
             <Details />
           </Route>
-
-
 
         </Switch>
       </Layout>

@@ -1,19 +1,19 @@
 import classes from './BraidItem.module.css';
-
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { useContext } from 'react';
 import Card from '../ui/Card';
 
 import { DetailsContext } from "./../../store/DetailsContext";
 
-
-
 function BraidItem(props) {
     const history = useHistory();
     const { setBraid } = useContext(DetailsContext);
+
     function detailFunction(props) {
         setBraid(props);
-        history.push("/details");
+        console.log(props.id)
+        history.push("/details/"+props.id);
     };
 
     return <li className="list-inline-item">

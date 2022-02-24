@@ -1,40 +1,75 @@
 import React from 'react'
+import { useState, useEffect } from "react";
+import { Container, Row, Col, Card } from 'react-bootstrap'
+import { useLocation } from 'react-router-dom'
+import classes from "./Details.module.css";
 import { useContext } from 'react';
 import { DetailsContext } from "./../store/DetailsContext";
-import { Container, Row, Col, Card } from 'react-bootstrap'
+import firebase from "./../components/firebase/fireBaseConfig";
 
-import classes from "./Details.module.css";
+const ref = firebase.firestore().collection('braids');
+let text = "https://wa.me/393512301282";
+
+async function getBraid(setLoadedBraids,bradId,setWhatsAppMessage) {
+    ref.where('id','==',Number(bradId))
+    .onSnapshot((querySnapshot) => {
+      const items = [];
+      querySnapshot.forEach((doc) => {
+        items.push(doc.data());
+      });
+      setLoadedBraids(items[0]);
+      setWhatsAppMessage(items[0]);
+      text = "https://wa.me/393512301282?text=Ti contatto per il modello N°=" + items[0].id + ", " + items[0].title + ", " +
+            + items[0].price + "€ Colore " + items[0].baseColor + ". Quando saresti disponibile  ?";
+
+
+      return items[0];
+    });
+  }
 
 function Details() {
+    const location = useLocation();
+    const names=location.pathname.split("/");
+    const [loadedBraid, setLoadedBraid] = useState([]);
     const { setWhatsAppMessage, braid } = useContext(DetailsContext);
-    setWhatsAppMessage(braid);
-    console.log(braid);
+
+    useEffect(() => {
+        getBraid(setLoadedBraid,names[2],setWhatsAppMessage);
+      }, []);
+
+    
     return (
         <Container>
             <Row className="justify-content-md-center">
                 <Col sm>
                     <Card>
-                        <Card.Img className={classes.image} src={braid.image} alt="Card image" />
+                        <Card.Img className={classes.image} src={loadedBraid.urlImage} alt="Card image" />
                     </Card>
                 </Col>
                 <Col className={classes.details}>
-                    <p className={classes.title}>{braid.title}</p>
-                    <p className={classes.description}>{braid.description}</p>
+                    <p className={classes.title}>{loadedBraid.title}</p>
+                    <p className={classes.description}>{loadedBraid.description}</p>
                     <Row className="row mt-5">
                         <Col>
-                            <p className={classes.price}>Price: {braid.price} €</p>
+                            <p className={classes.price}>Price: {loadedBraid.price} €</p>
                         </Col>
                         <Col>
-                            <p className={classes.season}>Ideal for: {braid.season} </p>
+                            <p className={classes.season}>Ideal for: {loadedBraid.season} </p>
                         </Col>
                     </Row>
                     <Row className="row mt-5">
                         <Col>
-                            <p className={classes.makingTime}>Making Time:{braid.makingTime}</p>
+                            <p className={classes.makingTime}>Making Time:{loadedBraid.makingTime}</p>
                         </Col>
                         <Col>
-                            <p className={classes.holdingTime}>Holding Time:{braid.holdingTime} </p>
+                            <p className={classes.holdingTime}>Holding Time:{loadedBraid.holdingTime} </p>
                         </Col>
+                    </Row>
+
+                    <Row className="row mt-5">
+                        <a href={text}>
+                            <button type='button'>Prenota !</button>
+                        </a>
                     </Row>
                 </Col>
             </Row>
