@@ -3,14 +3,11 @@ import { useState, useEffect } from "react";
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
 import classes from "./Details.module.css";
-import { useContext } from 'react';
-import { DetailsContext } from "./../store/DetailsContext";
 import firebase from "./../components/firebase/fireBaseConfig";
 
 const ref = firebase.firestore().collection('braids');
-let text = "https://wa.me/393512301282";
 
-async function getBraid(setLoadedBraids,bradId,setWhatsAppMessage) {
+async function getBraid(setLoadedBraids,bradId,setText) {
     ref.where('id','==',Number(bradId))
     .onSnapshot((querySnapshot) => {
       const items = [];
@@ -18,10 +15,10 @@ async function getBraid(setLoadedBraids,bradId,setWhatsAppMessage) {
         items.push(doc.data());
       });
       setLoadedBraids(items[0]);
-      setWhatsAppMessage(items[0]);
-      text = "https://wa.me/393512301282?text=Ti contatto per il modello N°=" + items[0].id + ", " + items[0].title + ", " +
+      let text ="https://wa.me/+393512301282?text=Ti contatto per il modello N°=" + items[0].id + ", " + items[0].title + ", " +
             + items[0].price + "€ Colore " + items[0].baseColor + ". Quando saresti disponibile  ?";
-      return items[0];
+     setText(text);
+     return items[0];
     });
   }
 
@@ -29,13 +26,13 @@ function Details() {
     const location = useLocation();
     const names=location.pathname.split("/");
     const [loadedBraid, setLoadedBraid] = useState([]);
-    const { setWhatsAppMessage } = useContext(DetailsContext);
+    const [text, setText] = useState([]);
+   
 
     useEffect(() => {
-        getBraid(setLoadedBraid,names[2],setWhatsAppMessage);
+        getBraid(setLoadedBraid,names[2],setText);
       }, []);
 
-    
     return (
         <Container>
             <Row className="justify-content-md-center">
@@ -65,9 +62,10 @@ function Details() {
                     </Row>
 
                     <Row className="row mt-5">
-                        <div className={classes.actions}>
-                            <a href={text} target="blank" style={{ color: 'green' }}>Ordinare Subito !</a>
+                        <div >
+                            <a href={text} className={classes.button} target="blank" >Prenotare</a>
                         </div>
+
                     </Row>
                 </Col>
             </Row>

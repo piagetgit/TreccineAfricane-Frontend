@@ -5,23 +5,46 @@ import { DetailsContext } from "./../../store/DetailsContext";
 import { useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import logo from "./logo192.png"
+import firebase from "./../firebase/fireBaseConfig";
+
+const ref = firebase.firestore().collection('braids');
+
+async function getBraid(setAllBraids,title) {
+  if(title===''){
+    ref.where("visible","==",true)
+   .onSnapshot((querySnapshot) => {
+    const items = [];
+    querySnapshot.forEach((doc) => {
+      items.push(doc.data());
+    });
+    setAllBraids(items);
+    return items;
+  });
+  }else
+  {
+    ref.where("visible","==",true)
+   .where('title', '>=', title.toUpperCase()).where('title', '<', title.toLowerCase() + 'z')
+   .onSnapshot((querySnapshot) => {
+    const items = [];
+    querySnapshot.forEach((doc) => {
+      items.push(doc.data());
+    });
+    setAllBraids(items);
+    return items;
+  });
+  }
+
+
+}
+
+
 function MainNavigation() {
-    /*const query = UseRef();*/
-    const { allBraids } = useContext(DetailsContext);
+    const { setAllBraids } = useContext(DetailsContext);
 
     function hanldeSearch(e) {
         e.preventDefault();
         console.log(e.target.value);
-
-        const searchBraids = allBraids.map(braid => {
-            if (braid !== undefined && braid.title.toLowerCase().includes(e.target.value.toLowerCase())) {
-                console.log("title:" + braid.title);
-                return braid;
-            }
-        })
-
-        const searchBraidsREs = searchBraids.filter(function (el) { return el !== undefined })
-        console.log(searchBraidsREs);
+        getBraid(setAllBraids,e.target.value)
     }
     return (
         <Navbar className={classes.navbar} collapseOnSelect expand="md">

@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 function App() {
   const [braid, setBraid] = useState('hello');
-  const [allBraids, setAllBraids] = useState('hello');
+  const [allBraids, setAllBraids] = useState([]);
   const [whatsAppMessage, setWhatsAppMessage] = useState("");
 
   return (
