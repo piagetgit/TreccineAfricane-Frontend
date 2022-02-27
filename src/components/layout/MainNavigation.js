@@ -64,16 +64,13 @@ function MainNavigation() {
                         <Nav.Link href="/latest-braids">Lastest Braids</Nav.Link>
                         <Nav.Link href="/popular-braids">Populars Braids </Nav.Link>
 
-                        <Form className="d-flex">
-                            <FormControl onChange={e => hanldeSearch(e)}
-                                type="search"
-                                placeholder="Search by Title"
-                                className="mr-2"
-                                aria-label="Search"
-                            />
-                            <Button className={classes.search} >Search</Button>
-                        </Form>
+                        <div className={classes.searchBox}>
 
+                          <button className={classes.btnSearch}><i class="fas fa-search"></i></button>
+                            <input onChange={e => hanldeSearch(e)} type="search" className={classes.inputSearch} placeholder="Search by title..."/>
+                         
+                        </div>
+                        
                     </Nav>
                 </Navbar.Collapse>
             </Container>
