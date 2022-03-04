@@ -9,7 +9,7 @@ function BraidList(props) {
             <h1 className={classes.logo}>{props.nameOfPage}</h1>
             <Row>
                 {props.braids.map(braid =>
-                    <Col className="col-sm-3">
+                    <Col xs={6} md={3}>
                         <BraidItem key={braid.id}
                             id={braid.id}
                             image={braid.urlImage}

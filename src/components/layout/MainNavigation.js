@@ -1,6 +1,6 @@
 
 import classes from './MainNavigation.module.css'
-import { Navbar, Container, Nav, Form, FormControl, Button } from 'react-bootstrap';
+import { Navbar, Container, Nav} from 'react-bootstrap';
 import { DetailsContext } from "./../../store/DetailsContext";
 import { useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -66,9 +66,9 @@ function MainNavigation() {
 
                         <div className={classes.searchBox}>
 
-                          <button className={classes.btnSearch}><i class="fas fa-search"></i></button>
-                            <input onChange={e => hanldeSearch(e)} type="search" className={classes.inputSearch} placeholder="Search by title..."/>
-                         
+                          <button className={classes.btnSearch}><i className="fas fa-search"></i></button>
+                            <input onChange={e => hanldeSearch(e)} type="text" className={classes.inputSearch} placeholder="Search by title..."/>
+                            
                         </div>
                         
                     </Nav>

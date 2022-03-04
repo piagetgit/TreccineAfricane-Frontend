@@ -65,7 +65,6 @@ function Details() {
                         <div >
                             <a href={text} className={classes.button} target="blank" >Prenotare</a>
                         </div>
-
                     </Row>
                 </Col>
             </Row>

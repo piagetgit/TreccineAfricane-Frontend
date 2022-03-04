@@ -20,10 +20,8 @@ async function getBraid(setIsLoading,setAllBraids) {
 
 function AllBraidPage() {
   const [isLoading, setIsLoading] = useState(true);
-  const [loadedBraids, setLoadedBraids] = useState([]);
   const { allBraids, setAllBraids } = useContext(DetailsContext);
   useEffect(() => {
-
     setIsLoading(true);
     getBraid(setIsLoading,setAllBraids);
   }, []);
