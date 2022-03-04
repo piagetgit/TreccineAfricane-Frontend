@@ -11,7 +11,7 @@ async function getBraid(setIsLoading,setAllBraids) {
     querySnapshot.forEach((doc) => {
       items.push(doc.data());
     });
-
+// da cancellare
     setIsLoading(false);
     setAllBraids(items);
     return items;
