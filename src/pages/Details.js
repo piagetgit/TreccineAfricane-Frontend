@@ -67,6 +67,15 @@ function Details() {
                             <a href={text} className={classes.button} target="blank" >Prenotare</a>
                         </div>
                     </Row>
+
+                    <Row className="row mt-5" >
+
+                        <div >
+                            <a href='/BOOKING' className={classes.button} >REGISTRA UNA PRENOTAZIONE</a>
+                        </div>
+
+                    </Row>
+
                     <Row className="row mt-5" >
 
                         <div >

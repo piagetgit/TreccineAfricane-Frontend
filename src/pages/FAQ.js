@@ -1,5 +1,5 @@
 
-//import { useState, useEffect, useRef } from "react";
+import React from "react";
 import firebase from "./../components/firebase/fireBaseConfig";
 
 //const ref = firebase.firestore().collection('braids');
