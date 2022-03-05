@@ -4,6 +4,7 @@ import { Container, Row, Col, Card } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
 import classes from "./Details.module.css";
 import firebase from "./../components/firebase/fireBaseConfig";
+import FAQ from './FAQ';
 
 const ref = firebase.firestore().collection('braids');
 
@@ -66,10 +67,19 @@ function Details() {
                             <a href={text} className={classes.button} target="blank" >Prenotare</a>
                         </div>
                     </Row>
-                </Col>
+                    <Row className="row mt-5" >
+
+                        <div >
+                            <a href='/FAQ' className={classes.button} >HAI UNA DOMANDA?</a>
+                        </div>
+
+                    </Row>
+                    </Col>
+
             </Row>
+
         </Container>
     )
 }
 
-export default Details
+export default Details;

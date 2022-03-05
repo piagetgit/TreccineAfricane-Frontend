@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import AllBraidPage from './pages/AllBraids';
 import PopularBraids from './pages/PopularBraids';
 import LatestBraids from './pages/LatestBraids';
+import FAQ from './pages/FAQ';
 import Layout from './components/layout/Layout';
 import Details from './pages/Details';
 import { DetailsContext } from './store/DetailsContext';
@@ -29,6 +30,9 @@ function App() {
             <PopularBraids />
           </Route>
 
+          <Route path='/FAQ' exact>
+            <FAQ />
+          </Route>
           
           <Route path="/details">
             <Details />
