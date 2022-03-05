@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { Container, Row, Col, Card } from 'react-bootstrap'
+import { Container, Row, Col, Card, Carousel } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
 import classes from "./Details.module.css";
 import firebase from "./../components/firebase/fireBaseConfig";
@@ -37,10 +37,29 @@ function Details() {
     return (
         <Container>
             <Row className="justify-content-md-center">
-                <Col sm>
-                    <Card>
-                        <Card.Img className={classes.image} src={loadedBraid.urlImage} alt="Card image" />
-                    </Card>
+                <Col sm >
+                    <Carousel style={{'width':"400px"}} fade >
+                        <Carousel.Item>
+                            <Card.Img id={classes.image}  src={loadedBraid.urlImage} alt="First slide" />
+                            <Carousel.Caption>
+                                <h3>First Image</h3>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+
+                        <Carousel.Item>
+                            <Card.Img id={classes.image}  src={loadedBraid.urlImage} alt="Second slide" />
+                            <Carousel.Caption>
+                               <h3>Second Image</h3>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+
+                        <Carousel.Item>
+                            <Card.Img id={classes.image}  src={loadedBraid.urlImage} alt="Third slide" />
+                            <Carousel.Caption>
+                                <h3>Third Image</h3>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    </Carousel>
                 </Col>
                 <Col className={classes.details}>
                     <p className={classes.title}>{loadedBraid.title}</p>
@@ -74,7 +93,7 @@ function Details() {
                         </div>
 
                     </Row>
-                    </Col>
+                </Col>
 
             </Row>
 

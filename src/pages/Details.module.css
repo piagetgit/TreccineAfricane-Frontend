@@ -3,11 +3,13 @@
 	font-family: 'Style Script', cursive;
 }
 .details {
-	text-align: center;
+	text-align: center; 
+    display: block
 }
-.image {
+#image {
 	border-radius: 20px;
 	border-style: none ;
+	width: 400px;
 }
 .button{
   padding: 20px;
