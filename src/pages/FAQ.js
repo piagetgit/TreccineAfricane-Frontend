@@ -1,10 +1,5 @@
-
-import React from "react";
-import firebase from "./../components/firebase/fireBaseConfig";
-
-//const ref = firebase.firestore().collection('braids');
-
-import Faq from "react-faq-component";
+import React from 'react';
+import Faq from 'react-faq-component';
 
 const data = {
     title: "FAQ (How it works)",

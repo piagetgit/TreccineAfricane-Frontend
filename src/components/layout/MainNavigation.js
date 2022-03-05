@@ -51,7 +51,7 @@ function MainNavigation() {
             <Container className={classes.content}>
                 <Navbar.Brand>
                     <div className={classes.logo}>
-                        <a href='/'>< img src={logo} alt="Image Load Error" width="150" /></a>
+                        <a href='/'><img src={logo} alt="Image Load Error" width="150" /></a>
 
                     </div>
                 </Navbar.Brand>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import { Container, Row, Col, Card } from 'react-bootstrap'
+import { Container, Row, Col, Card, Carousel } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
 import classes from "./Details.module.css";
 import firebase from "./../components/firebase/fireBaseConfig";
@@ -38,9 +38,29 @@ function Details() {
         <Container>
             <Row className="justify-content-md-center">
                 <Col sm>
-                    <Card>
-                        <Card.Img className={classes.image} src={loadedBraid.urlImage} alt="Card image" />
-                    </Card>
+                    <Carousel fade >
+                        <Carousel.Item>
+                            <Card.Img id={classes.image}  className="d-block mw-100" src={loadedBraid.urlImage} alt="First slide" />
+                            <Carousel.Caption>
+                            <h3>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                        <Card.Img id={classes.image}  className="d-block mw-100" src={loadedBraid.urlImage} alt="Second slide" />
+                            <Carousel.Caption>
+                            <h3>Second slide label</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                        <Card.Img id={classes.image}  className="d-block w-100" src={loadedBraid.urlImage} alt="Third slide" />
+                            <Carousel.Caption>
+                            <h3>Third slide label</h3>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+                    </Carousel>
                 </Col>
                 <Col className={classes.details}>
                     <p className={classes.title}>{loadedBraid.title}</p>
@@ -83,7 +103,7 @@ function Details() {
                         </div>
 
                     </Row>
-                    </Col>
+                </Col>
 
             </Row>
 
