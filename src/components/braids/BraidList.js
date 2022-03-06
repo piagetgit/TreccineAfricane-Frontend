@@ -12,7 +12,7 @@ function BraidList(props) {
                     <Col xs={6} md={3}>
                         <BraidItem key={braid.id}
                             id={braid.id}
-                            image={braid.urlImage}
+                            image={braid.urlImage1}
                             title={braid.title}
                             description={braid.description}
                             holdingTime={braid.holdingTime}
