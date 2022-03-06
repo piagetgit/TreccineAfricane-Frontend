@@ -4,6 +4,7 @@ import AllBraidPage from './pages/AllBraids';
 import PopularBraids from './pages/PopularBraids';
 import LatestBraids from './pages/LatestBraids';
 import FAQ from './pages/FAQ';
+import BOOKING from './pages/BOOKING'
 import Layout from './components/layout/Layout';
 import Details from './pages/Details';
 import { DetailsContext } from './store/DetailsContext';
@@ -32,6 +33,10 @@ function App() {
 
           <Route path='/FAQ' exact>
             <FAQ />
+          </Route>
+
+          <Route path='/BOOKING' exact>
+            <BOOKING />
           </Route>
           
           <Route path="/details">
