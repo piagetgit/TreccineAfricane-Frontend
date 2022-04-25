@@ -2,22 +2,22 @@ import React from 'react';
 import Faq from 'react-faq-component';
 
 const data = {
-    title: "FAQ (How it works)",
+    title: "FAQ (Se hai una domanda più specifica, non esitare a scriverci !)",
     rows: [
         {
-            title: "Lorem ipsum dolor sit amet,",
+            title: "Per quanto tempo le posso tenere ?",
             content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sed tempor sem. Aenean vel turpis feugiat,
               ultricies metus at, consequat velit. Curabitur est nibh, varius in tellus nec, mattis pulvinar metus.
               In maximus cursus lorem, nec laoreet velit eleifend vel. Ut aliquet mauris tortor, sed egestas libero interdum vitae.
               Fusce sed commodo purus, at tempus turpis.`,
         },
         {
-            title: "Nunc maximus, magna at ultricies elementum",
+            title: "Come le devo larvare ?",
             content:
                 "Nunc maximus, magna at ultricies elementum, risus turpis vulputate quam, vitae convallis ex tortor sed dolor.",
         },
         {
-            title: "Curabitur laoreet, mauris vel blandit fringilla",
+            title: "Quanto tempo ci mette a farle",
             content: `Curabitur laoreet, mauris vel blandit fringilla, leo elit rhoncus nunc, ac sagittis leo elit vel lorem.
             Fusce tempor lacus ut libero posuere viverra. Nunc velit dolor, tincidunt at varius vel, laoreet vel quam.
             Sed dolor urna, lobortis in arcu auctor, tincidunt mattis ante. Vivamus venenatis ultricies nibh in volutpat.

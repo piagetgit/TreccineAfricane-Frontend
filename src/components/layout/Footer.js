@@ -19,6 +19,15 @@ function Footer(props) {
                                 <MDBCol md="3">
                                     <ul>
                                         <li className="list-unstyled">
+                                            <a href="https://www.tiktok.com/@treccineafricane" target="blank" style={{ color: 'black' }} className="p-5 fa-lg w-ic">
+                                                <MDBIcon fab icon="tiktok" size="2x" />
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </MDBCol>
+                                <MDBCol md="3">
+                                    <ul>
+                                        <li className="list-unstyled">
                                             <a href="https://www.instagram.com/treccine_africane_ferrara/" target="blank" style={{ color: 'red' }} className="p-5 fa-lg w-ic">
                                                 <MDBIcon fab icon="instagram" size="2x" />
                                             </a>
